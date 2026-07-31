@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">ZIYANG YISHE | 紫洋衣舍 — 여성 니트웨어</title>
+<meta id="pageDesc" name="description" content="부드러움이 만드는 우아함. 紫洋衣舍(ZIYANG YISHE)의 여성 니트웨어 컬렉션.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+SC:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/variable/pretendardvariable.css" />
+<style>
+  :root{
+    --bone:#F3EEF1;
+    --card:#FBF7F9;
+    --ink:#2B1F2E;
+    --mauve:#9C7C8C;
+    --rose:#B98CA0;
+    --plumgrey:#6B5560;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bone);
+    color:var(--ink);
+    font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit;}
+  .serif-kr{font-family:'Gowun Batang',serif;}
+  .serif-cn{font-family:'Noto Serif SC',serif;}
+  .latin-caps{font-family:'Poppins',sans-serif;letter-spacing:.18em;text-transform:uppercase;}
+  .container{max-width:1120px;margin:0 auto;padding:0 32px;}
+  .icon-loop{color:currentColor;}
+
+  [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+  [data-reveal].in-view{opacity:1;transform:none;}
+  @keyframes heroIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+  .hero-anim{animation:heroIn .85s ease both;}
+  @media (prefers-reduced-motion:reduce){
+    [data-reveal]{transition:none;opacity:1;transform:none;}
+    .hero-anim{animation:none;}
+  }
+
+  a:focus-visible,button:focus-visible{outline:2px solid var(--rose);outline-offset:3px;}
+
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 0;
+    background:rgba(243,238,241,.86);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease,padding .3s ease;
+  }
+  header.scrolled{border-bottom-color:rgba(156,124,140,.35);padding:14px 0;}
+  header .container{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  
+  .brand-lockup{display:flex;align-items:center;gap:10px;}
+  .brand-logo { 
+    height: 48px; 
+    width: auto; 
+    object-fit: contain; 
+    mix-blend-mode: multiply; 
+    filter: contrast(1.15) brightness(1.05);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
+    margin-left: -8px; 
+  }
+  .brand-name{font-size:14px;letter-spacing:.14em;}
+  
+  .header-right{display:flex;align-items:center;gap:24px;}
+
+  .lang-switch{
+    display:flex;align-items:center;gap:4px;
+    background:rgba(156,124,140,.12);
+    padding:4px; border-radius:30px;
+    border: 1px solid rgba(156,124,140,.15);
+  }
+  .lang-switch button{
+    background:none;border:none;cursor:pointer;
+    font-family:'Poppins',sans-serif;font-size:12px;
+    letter-spacing:.05em;color:var(--plumgrey);
+    padding:6px 14px; border-radius: 20px;
+    transition: all 0.3s ease;
+    outline: none; 
+  }
+  .lang-switch button:focus-visible {
+    box-shadow: 0 0 0 2px var(--bone), 0 0 0 4px var(--rose);
+  }
+  .lang-switch button:hover {
+    color: var(--ink); background: rgba(255,255,255,0.4);
+  }
+  .lang-switch button.active{
+    background:var(--ink);color:var(--bone);
+    font-weight:600;
+  }
+
+  .btn{
+    display:inline-block;padding:14px 32px;
+    background:var(--ink);color:var(--bone);
+    font-size:14px;font-weight:600;letter-spacing:.02em;
+    border-radius:2px;border:1px solid var(--ink);
+    cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease;
+    text-align: center;
+  }
+  .btn:hover{background:var(--mauve);border-color:var(--mauve);}
+  .btn-sm{padding:10px 22px;font-size:13px;}
+  .btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--bone);}
+  .btn-invert{background:var(--bone);color:var(--ink);border:1px solid var(--bone);}
+  .btn-invert:hover{background:transparent;color:var(--bone);}
+
+  .hero{padding:168px 0 120px;position:relative;text-align:center;overflow:hidden;}
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background-image:repeating-linear-gradient(135deg,rgba(155,124,140,.08) 0 2px,transparent 2px 15px);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1;}
+  .hero-logo{
+    height: 190px; 
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto 16px; 
+    display: block; 
+    object-fit: contain; 
+    mix-blend-mode: multiply; 
+    filter: contrast(1.15) brightness(1.05);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  }
+  .hero-cn{font-size:40px;letter-spacing:.34em;margin-bottom:8px;margin-left:.34em;}
+  .hero-latin{font-size:13px;color:var(--plumgrey);margin-bottom:44px;}
+  .hero-headline{font-size:46px;line-height:1.4;max-width:660px;margin:0 auto 22px;font-weight:700;}
+  .hero-sub{font-size:16px;color:var(--plumgrey);margin-bottom:40px;}
+
+  section{padding:96px 0;}
+  .section-eyebrow{font-size:12px;color:var(--plumgrey);margin-bottom:14px;}
+  .section-title{font-size:32px;margin-bottom:52px;}
+  .center{text-align:center;}
+
+  .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;}
+  .value-item{text-align:center;}
+  .value-item .icon-loop{width:52px;height:32px;margin:0 auto 22px;color:var(--mauve);}
+  .value-item h3{font-size:18px;margin-bottom:10px;font-weight:600;}
+  .value-item p{font-size:14px;color:var(--plumgrey);}
+
+  .products{background:var(--card);}
+  
+  .view-section {
+    display: none; opacity: 0; transform: translateY(15px);
+  }
+  .view-section.active {
+    display: block; animation: viewFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes viewFadeIn {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  
+  .product-card{
+    background:var(--bone);
+    border:1px solid rgba(156,124,140,.2);
+    border-radius: 4px; 
+    overflow: hidden;
+    transition: box-shadow 0.5s ease, transform 0.5s ease, border-color 0.5s ease;
+    display: flex; flex-direction: column; height: 100%; 
+  }
+  .product-card:hover {
+    box-shadow: 0 18px 36px rgba(107,85,96,.12);
+    transform: translateY(-5px);
+    border-color: rgba(156,124,140,.4);
+  }
+
+  .product-image{
+    width: 100%;
+    padding-top: 125%; 
+    position: relative; 
+    border-bottom: 1px solid rgba(156,124,140,.2); 
+    overflow: hidden; 
+  }
+  .product-image.t0{background:linear-gradient(160deg,rgba(156,124,140,.16),rgba(185,140,160,.10));}
+  .product-image.t1{background:linear-gradient(160deg,rgba(185,140,160,.16),rgba(107,85,96,.08));}
+  .product-image.t2{background:linear-gradient(160deg,rgba(107,85,96,.12),rgba(156,124,140,.14));}
+  .product-image.t3{background:linear-gradient(160deg,rgba(156,124,140,.10),rgba(107,85,96,.14));}
+  
+  .product-body{
+    padding: 20px; display: flex; flex-direction: column; flex-grow: 1; 
+  }
+  .product-body h3{font-size:15px;margin-bottom:6px;font-weight:600;line-height:1.4;}
+  .product-price{font-size:14px;color:var(--plumgrey);margin-bottom:20px;}
+  
+  .product-body .btn-outline {
+    margin-top: auto; align-self: flex-start; 
+  }
+
+  .back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--plumgrey);margin-bottom:36px;cursor:pointer;background:none;border:none;font-family:inherit;padding:0;outline:none;}
+  .back-link:hover{color:var(--ink);}
+  
+  .detail-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  
+  .detail-media {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  
+  .detail-image{
+    width: 100%; 
+    padding-top: 125%; 
+    position: relative;
+    background:linear-gradient(160deg,rgba(156,124,140,.16),rgba(185,140,160,.10));
+    border:1px solid rgba(156,124,140,.2);
+    border-radius: 4px; overflow: hidden;
+  }
+  
+  .detail-gallery {
+    display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px;
+  }
+  .detail-gallery::-webkit-scrollbar { height: 4px; }
+  .detail-gallery::-webkit-scrollbar-thumb { background: rgba(156,124,140,.3); border-radius: 4px; }
+  .detail-gallery img {
+    width: 76px; height: 95px; object-fit: cover;
+    border-radius: 4px; cursor: pointer;
+    opacity: 0.45; border: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+  .detail-gallery img:hover { opacity: 0.8; }
+  .detail-gallery img.active {
+    opacity: 1; border-color: var(--ink); box-shadow: 0 4px 12px rgba(107,85,96,.12);
+  }
+
+  .detail-info h3{font-size:26px;margin:10px 0 12px;font-weight:600;}
+  .detail-price{font-size:19px;color:var(--ink); font-weight:500; margin-bottom:22px;}
+  .detail-desc{font-size:15px;color:var(--plumgrey);margin-bottom:30px;line-height:1.85;}
+
+  .product-image img, 
+  .detail-image img {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; 
+    object-fit: cover; display: block;
+    opacity: 0; transition: opacity 0.6s ease, transform 0.8s ease;
+  }
+  .product-card:hover .product-image img { transform: scale(1.06); }
+  .product-image img.loaded, 
+  .detail-image img.loaded { opacity: 1; }
+
+  .placeholder-content { 
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; 
+  }
+  .placeholder-content .icon-loop { width:56px;height:34px;color:var(--mauve);opacity:.7; }
+  .detail-image .placeholder-content .icon-loop { width:78px;height:48px; }
+  .placeholder-content span { font-size:11px;color:var(--plumgrey); }
+  .detail-image .placeholder-content span { font-size:13px; }
+
+  .story .container{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+  .story-text p{margin-bottom:18px;color:var(--plumgrey);font-size:15px;}
+  .story-mark{font-size:15px;letter-spacing:.2em;color:var(--ink);margin-top:28px;}
+  
+  .story-pattern{
+    width: 100%; padding-top: 100%; 
+    background:var(--card);
+    border:1px solid rgba(156,124,140,.3);
+    position:relative; overflow:hidden;
+  }
+  .story-pattern svg{position:absolute;inset:0;width:100%;height:100%;}
+
+  .final-cta{background:var(--ink);color:var(--bone);text-align:center;}
+  .final-cta .icon-loop{width:70px;height:42px;margin:0 auto 26px;color:var(--rose);}
+  .final-cta h2{font-size:34px;margin-bottom:16px;font-weight:700;}
+  .final-cta p{font-size:15px;color:rgba(243,238,241,.72);margin-bottom:38px;}
+
+  footer{padding:56px 0 40px;}
+  footer .container{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;}
+  .footer-links{display:flex;gap:28px;font-size:13px;color:var(--plumgrey);}
+  .footer-copy{font-size:12px;color:var(--plumgrey);}
+
+  @media (max-width:960px){
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .detail-layout{grid-template-columns:1fr;gap:32px;}
+  }
+  @media (max-width:860px){
+    .hero{padding:140px 0 88px;}
+    .hero-logo{height:140px;}
+    .hero-headline{font-size:32px;}
+    .hero-cn{font-size:30px;letter-spacing:.24em;margin-left:.24em;}
+    .section-title{font-size:26px;}
+    .value-grid{grid-template-columns:1fr;gap:32px;}
+    .story .container{grid-template-columns:1fr;gap:36px;}
+    section{padding:72px 0;}
+    .container{padding:0 22px;}
+    .header-right{gap:14px;}
+  }
+  @media (max-width:480px){
+    .product-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="container">
+    <a class="brand-lockup" href="#top" aria-label="紫洋衣舍 home">
+      <img class="brand-logo" src="Gemini_Generated_Image_.png" alt="ZIYANG Seoul Logo">
+      <span class="brand-name serif-cn">紫洋衣舍</span>
+    </a>
+    <div class="header-right">
+      <div class="lang-switch">
+        <button data-lang="zh" onclick="setLang('zh')">中文</button>
+        <button data-lang="ko" onclick="setLang('ko')">한국어</button>
+        <button data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="btn btn-sm" href="#products" data-i18n="navCta">立即购买</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <img class="hero-logo hero-anim" style="animation-delay:.05s" src="Gemini_Generated_Image_.png" alt="ZIYANG Seoul Logo">
+      <p class="hero-cn serif-cn hero-anim" style="animation-delay:.15s">紫洋衣舍</p>
+      <p class="hero-latin latin-caps hero-anim" style="animation-delay:.25s">Ziyang Yishe</p>
+      <h1 class="hero-headline serif-kr hero-anim" style="animation-delay:.35s" data-i18n="heroHeadline">柔软造就<br>优雅气质</h1>
+      <p class="hero-sub hero-anim" style="animation-delay:.45s" data-i18n="heroSub">一针一线用心织就的针织服饰<br>为你完成属于自己的季节</p>
+      <a class="btn hero-anim" style="animation-delay:.55s" href="#products" data-i18n="heroCta">查看系列</a>
+    </div>
+  </section>
+
+  <section aria-label="brand values" data-reveal>
+    <div class="container">
+      <div class="value-grid">
+        <div class="value-item">
+          <svg class="icon-loop" viewBox="0 0 120 70" aria-hidden="true"><ellipse cx="46" cy="35" rx="34" ry="24" transform="rotate(-18 46 35)" fill="none" stroke="currentColor" stroke-width="4"/><ellipse cx="76" cy="35" rx="34" ry="24" transform="rotate(18 76 35)" fill="none" stroke="currentColor" stroke-width="3" opacity=".75"/></svg>
+          <h3 data-i18n="value1Title">优质柔软纱线</h3>
+          <p data-i18n="value1Desc">触碰的瞬间,便能感受到不一样的柔软</p>
+        </div>
+        <div class="value-item">
+          <svg class="icon-loop" viewBox="0 0 120 70" aria-hidden="true"><ellipse cx="46" cy="35" rx="34" ry="24" transform="rotate(-18 46 35)" fill="none" stroke="currentColor" stroke-width="4"/><ellipse cx="76" cy="35" rx="34" ry="24" transform="rotate(18 76 35)" fill="none" stroke="currentColor" stroke-width="3" opacity=".75"/></svg>
+          <h3 data-i18n="value2Title">精致版型与细节</h3>
+          <p data-i18n="value2Desc">精心设计的版型,勾勒身形线条</p>
+        </div>
+        <div class="value-item">
+          <svg class="icon-loop" viewBox="0 0 120 70" aria-hidden="true"><ellipse cx="46" cy="35" rx="34" ry="24" transform="rotate(-18 46 35)" fill="none" stroke="currentColor" stroke-width="4"/><ellipse cx="76" cy="35" rx="34" ry="24" transform="rotate(18 76 35)" fill="none" stroke="currentColor" stroke-width="3" opacity=".75"/></svg>
+          <h3 data-i18n="value3Title">限量制作</h3>
+          <p data-i18n="value3Desc">小批量生产,只为更高的完成度</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products" aria-label="products" data-reveal>
+    <div class="container">
+      <div id="productListView" class="view-section active">
+        <p class="section-eyebrow latin-caps center">Best knitwear</p>
+        <h2 class="section-title serif-kr center" data-i18n="productsTitle">本月精选针织</h2>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+
+      <div id="productDetailView" class="view-section">
+        <button class="back-link" onclick="closeDetail()">&larr;&nbsp;<span data-i18n="backToList">返回列表</span></button>
+        <div class="detail-layout">
+          <div class="detail-media">
+            <div class="detail-image">
+              <img id="detailImgNode" src="" alt="" style="display:none;">
+              <div id="detailPlaceholderNode" class="placeholder-content">
+                <svg class="icon-loop" viewBox="0 0 120 70" aria-hidden="true"><ellipse cx="46" cy="35" rx="34" ry="24" transform="rotate(-18 46 35)" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="76" cy="35" rx="34" ry="24" transform="rotate(18 76 35)" fill="none" stroke="currentColor" stroke-width="2.4" opacity=".75"/></svg>
+                <span data-i18n="imagePlaceholder">产品图片</span>
+              </div>
+            </div>
+            <div class="detail-gallery" id="detailGalleryNode"></div>
+          </div>
+
+          <div class="detail-info">
+            <p class="section-eyebrow latin-caps" data-i18n="detailEyebrow">产品详情</p>
+            <h3 id="detailName"></h3>
+            <p class="detail-price" id="detailPrice"></p>
+            <p class="detail-desc" id="detailDesc"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" aria-label="brand story" data-reveal>
+    <div class="container">
+      <div class="story-text">
+        <p class="section-eyebrow latin-caps">Our story</p>
+        <h2 class="section-title serif-kr" style="margin-bottom:24px;" data-i18n="storyTitle">紫洋衣舍的故事</h2>
+        <p data-i18n="storyP1">紫洋衣舍(ZIYANG YISHE)是一个用柔软面料与精致细节,为日常生活增添优雅气质的针织品牌。</p>
+        <p data-i18n="storyP2">希望无论季节如何变化,都能为你带来始终如一的舒适与风格,因此每一件都用心制作。</p>
+        <p class="story-mark serif-cn">紫 洋 衣 舍</p>
+      </div>
+      <div class="story-pattern" aria-hidden="true">
+        <svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice">
+          <g fill="none" stroke="#9C7C8C" stroke-width="2" opacity=".55">
+            <ellipse cx="60" cy="50" rx="34" ry="24" transform="rotate(-18 60 50)"/><ellipse cx="94" cy="50" rx="34" ry="24" transform="rotate(18 94 50)"/>
+            <ellipse cx="180" cy="110" rx="34" ry="24" transform="rotate(-18 180 110)"/><ellipse cx="214" cy="110" rx="34" ry="24" transform="rotate(18 214 110)"/>
+            <ellipse cx="40" cy="180" rx="34" ry="24" transform="rotate(-18 40 180)"/><ellipse cx="74" cy="180" rx="34" ry="24" transform="rotate(18 74 180)"/>
+            <ellipse cx="220" cy="230" rx="34" ry="24" transform="rotate(-18 220 230)"/><ellipse cx="254" cy="230" rx="34" ry="24" transform="rotate(18 254 230)"/>
+            <ellipse cx="110" cy="260" rx="34" ry="24" transform="rotate(-18 110 260)"/><ellipse cx="144" cy="260" rx="34" ry="24" transform="rotate(18 144 260)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" aria-label="closing" data-reveal>
+    <div class="container">
+      <svg class="icon-loop" viewBox="0 0 120 70" aria-hidden="true"><ellipse cx="46" cy="35" rx="34" ry="24" transform="rotate(-18 46 35)" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="76" cy="35" rx="34" ry="24" transform="rotate(18 76 35)" fill="none" stroke="currentColor" stroke-width="2.4" opacity=".75"/></svg>
+      <h2 class="serif-kr" data-i18n="finalTitle">现在就去看看</h2>
+      <p data-i18n="finalDesc">这一季,与紫洋衣舍一起完成属于你的优雅</p>
+      <a class="btn btn-invert" href="#products" data-i18n="finalCta">前往查看</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <a class="brand-lockup" href="#top" aria-label="紫洋衣舍 home">
+      <img class="brand-logo" src="Gemini_Generated_Image_.png" alt="ZIYANG Seoul Logo">
+      <span class="brand-name serif-cn">紫洋衣舍</span>
+    </a>
+    <div class="footer-links">
+      <a href="#" data-i18n="footerInsta">Instagram</a>
+      <a href="#" data-i18n="footerEmail">邮箱咨询</a>
+      <a href="#" data-i18n="footerShipping">配送与换货说明</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 ZIYANG YISHE. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+var currentLang = 'zh'; 
+var currentDetailId = null;
+
+var ui = {
+  ko:{navCta:'컬렉션 보기',heroHeadline:'부드러움이<br>만드는 우아함',heroSub:'한 올 한 올 정성스럽게 짠 니트웨어로<br>당신의 계절을 완성하세요',heroCta:'컬렉션 보러가기',value1Title:'부드러운 프리미엄 원사',value1Desc:'피부에 닿는 순간, 다른 부드러움을 느껴보세요',value2Title:'섬세한 핏과 디테일',value2Desc:'몸의 라인을 살리는 정교한 패턴 설계',value3Title:'한정 수량 제작',value3Desc:'소량 생산으로 완성도를 높였습니다',productsTitle:'이달의 니트',imagePlaceholder:'제품 이미지',viewDetails:'자세히 보기',detailEyebrow:'제품 상세',backToList:'목록으로 돌아가기',finalTitle:'지금 바로 만나보세요',finalDesc:'이번 시즌, 紫洋衣舍와 함께 당신만의 우아함을 완성하세요',finalCta:'컬렉션 보기',footerInsta:'인스타그램',footerEmail:'이메일 문의',footerShipping:'브랜드 스토리',pageTitle:'ZIYANG YISHE | 紫洋衣舍 — 여성 니트웨어',pageDesc:'부드러움이 만드는 우아함. 紫洋衣舍(ZIYANG YISHE)의 여성 니트웨어 컬렉션.'},
+  zh:{navCta:'查看系列',heroHeadline:'柔软造就<br>优雅气质',heroSub:'一针一线用心织就的针织服饰<br>为你完成属于自己的季节',heroCta:'查看系列',value1Title:'优质柔软纱线',value1Desc:'触碰的瞬间,便能感受到不一样的柔软',value2Title:'精致版型与细节',value2Desc:'精心设计的版型,勾勒身形线条',value3Title:'限量制作',value3Desc:'小批量生产,只为更高的完成度',productsTitle:'本月精选针织',imagePlaceholder:'产品图片',viewDetails:'查看详情',detailEyebrow:'产品详情',backToList:'返回列表',storyTitle:'紫洋衣舍的故事',storyP1:'紫洋衣舍(ZIYANG YISHE)是一个用柔软面料与精致细节,为日常生活增添优雅气质的针织品牌。',storyP2:'希望无论季节如何变化,都能为你带来始终如一的舒适与风格,因此每一件都用心制作。',finalTitle:'现在就去看看',finalDesc:'这一季,与紫洋衣舍一起完成属于你的优雅',finalCta:'前往查看',footerInsta:'Instagram',footerEmail:'邮箱咨询',footerShipping:'品牌故事',pageTitle:'ZIYANG YISHE | 紫洋衣舍 — 女士针织服饰',pageDesc:'柔软造就优雅。紫洋衣舍(ZIYANG YISHE)女士针织服饰系列。'},
+  en:{navCta:'View Collection',heroHeadline:'Where softness<br>becomes elegance',heroSub:'Knitwear woven thread by thread, with care<br>— complete your own season',heroCta:'View the collection',value1Title:'Soft, premium yarn',value1Desc:'Feel a different kind of softness the moment it touches your skin',value2Title:'Delicate fit &amp; detail',value2Desc:'Precise pattern design that flatters your silhouette',value3Title:'Limited production',value3Desc:'Small-batch runs, made for a higher level of finish',productsTitle:'This month\u2019s knits',imagePlaceholder:'Product image',viewDetails:'View details',detailEyebrow:'Product details',backToList:'Back to list',storyTitle:'The Ziyang Yishe story',storyP1:'Ziyang Yishe is a knitwear label that adds quiet elegance to everyday life through soft materials and delicate detail.',storyP2:'We make every piece with care, so comfort and style stay constant through every changing season.',finalTitle:'See it for yourself',finalDesc:'This season, complete your own elegance with Ziyang Yishe',finalCta:'View Collection',footerInsta:'Instagram',footerEmail:'Email us',footerShipping:'Brand Story',pageTitle:'ZIYANG YISHE | Women\u2019s knitwear',pageDesc:'Where softness becomes elegance. The Ziyang Yishe women\u2019s knitwear collection.'}
+};
+
+var products = [
+  {
+    /* 已将产品一更新为您指定的 5 张本地 PNG 格式图片 */
+    id:1, 
+    image:'p1-1.png', 
+    gallery: [
+      'p1-1.png',
+      'p1-2.png', 
+      'p1-3.png',
+      'p1-4.png',
+      'p1-5.png'
+    ],
+    price:59000, name:{ko:'베이직 크루넥 니트',zh:'基础圆领针织衫',en:'Basic crewneck knit'},detail:{ko:'어떤 스타일에도 잘 어울리는 기본 아이템입니다. 부드러운 촉감으로 하루 종일 편안하게 착용할 수 있습니다.',zh:'百搭的基础单品,适合任何风格搭配。柔软触感让你整日穿着舒适自在。',en:'An easy essential that works with any style. Soft to the touch, comfortable to wear all day long.'}
+  },
+  {
+    id:2, 
+    image:'https://images.unsplash.com/photo-1574291814206-363acdf2aa79?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1574291814206-363acdf2aa79?w=500&q=80',
+      'https://images.unsplash.com/photo-1434389678369-18335faabdf8?w=500&q=80',
+      'https://images.unsplash.com/photo-1622345097416-2a781b2df958?w=500&q=80',
+      'https://images.unsplash.com/photo-1560243563-062bfc001d68?w=500&q=80',
+      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&q=80'
+    ],
+    price:129000, name:{ko:'케이블 니트 가디건',zh:'麻花针织开衫',en:'Cable knit cardigan'},detail:{ko:'전통적인 케이블 니트 패턴으로 짜여진 가디건입니다. 가볍게 걸치기 좋아 환절기 코디에 제격입니다.',zh:'采用经典麻花针织工艺制成的开衫。轻松叠穿,换季穿搭的百搭单品。',en:'Woven in a traditional cable-knit pattern. Easy to layer, perfect for those in-between seasons.'}
+  },
+  {
+    id:3, 
+    image:'https://images.unsplash.com/photo-1550614000-4b95d4ed6af2?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1550614000-4b95d4ed6af2?w=500&q=80',
+      'https://images.unsplash.com/photo-1515347619141-86ea4b971556?w=500&q=80',
+      'https://images.unsplash.com/photo-1485230861110-33cb66581898?w=500&q=80',
+      'https://images.unsplash.com/photo-1520006403932-d61cb0d636a1?w=500&q=80',
+      'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80'
+    ],
+    price:109000, name:{ko:'터틀넥 니트 원피스',zh:'高领针织连衣裙',en:'Turtleneck knit dress'},detail:{ko:'터틀넥 디자인이 목선을 우아하게 감싸주는 니트 원피스입니다. 부츠와 매치하면 더욱 세련된 룩을 완성할 수 있습니다.',zh:'高领设计优雅修饰颈部线条的针织连衣裙。搭配长靴穿着,更显精致利落。',en:'The turtleneck silhouette flatters the neckline with quiet elegance. Pair with boots for a polished look.'}
+  },
+  {
+    id:4, 
+    image:'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=500&q=80',
+      'https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=500&q=80',
+      'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&q=80',
+      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&q=80',
+      'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80'
+    ],
+    price:69000, name:{ko:'브이넥 니트 베스트',zh:'V领针织背心',en:'V-neck knit vest'},detail:{ko:'셔츠나 블라우스 위에 레이어드하기 좋은 브이넥 니트 베스트입니다. 오피스룩에도 잘 어울립니다.',zh:'适合叠穿在衬衫或衬衣外的V领针织背心,也很适合通勤穿搭。',en:'A V-neck knit vest made for layering over shirts or blouses. Works just as well for the office.'}
+  },
+  {
+    id:5, 
+    image:'https://images.unsplash.com/photo-1515347619141-86ea4b971556?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1515347619141-86ea4b971556?w=500&q=80',
+      'https://images.unsplash.com/photo-1485230861110-33cb66581898?w=500&q=80',
+      'https://images.unsplash.com/photo-1520006403932-d61cb0d636a1?w=500&q=80',
+      'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80',
+      'https://images.unsplash.com/photo-1550614000-4b95d4ed6af2?w=500&q=80'
+    ],
+    price:79000, name:{ko:'오프숄더 니트 탑',zh:'露肩针织上衣',en:'Off-shoulder knit top'},detail:{ko:'어깨 라인을 자연스럽게 드러내는 페미닌한 디자인의 니트 탑입니다. 데이트룩으로 추천합니다.',zh:'自然展现肩部线条的女性化设计针织上衣,推荐作为约会穿搭之选。',en:'A feminine, off-shoulder cut that shows off the shoulder line naturally. A lovely pick for date night.'}
+  },
+  {
+    id:6, 
+    image:'https://images.unsplash.com/photo-1560243563-062bfc001d68?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1560243563-062bfc001d68?w=500&q=80',
+      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&q=80',
+      'https://images.unsplash.com/photo-1574291814206-363acdf2aa79?w=500&q=80',
+      'https://images.unsplash.com/photo-1434389678369-18335faabdf8?w=500&q=80',
+      'https://images.unsplash.com/photo-1622345097416-2a781b2df958?w=500&q=80'
+    ],
+    price:89000, name:{ko:'하프집 니트 풀오버',zh:'半拉链套头针织衫',en:'Half-zip knit pullover'},detail:{ko:'하프집업 디테일로 캐주얼하면서도 포인트 있는 니트 풀오버입니다. 데님과 매치하기 좋습니다.',zh:'半拉链设计增添休闲感与亮点的套头针织衫,与牛仔裤搭配十分合拍。',en:'A half-zip detail gives this pullover a casual edge with a bit of character. Pairs well with denim.'}
+  },
+  {
+    id:7, 
+    image:'https://images.unsplash.com/photo-1485230861110-33cb66581898?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1485230861110-33cb66581898?w=500&q=80',
+      'https://images.unsplash.com/photo-1520006403932-d61cb0d636a1?w=500&q=80',
+      'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80',
+      'https://images.unsplash.com/photo-1550614000-4b95d4ed6af2?w=500&q=80',
+      'https://images.unsplash.com/photo-1515347619141-86ea4b971556?w=500&q=80'
+    ],
+    price:159000, name:{ko:'롱 가디건 코트',zh:'长款针织开衫外套',en:'Long cardigan coat'},detail:{ko:'코트 대용으로 걸치기 좋은 롱 기장의 가디건입니다. 니트 특유의 부드러움과 아우터의 실용성을 함께 담았습니다.',zh:'长度及膝、可作外套穿着的针织开衫,兼具针织的柔软与外套的实用性。',en:'An extra-long cardigan that works as outerwear, combining knit softness with everyday practicality.'}
+  },
+  {
+    id:8, 
+    image:'https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=500&q=80',
+      'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&q=80',
+      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&q=80',
+      'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80',
+      'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=500&q=80'
+    ],
+    price:49000, name:{ko:'리브 니트 탱크탑',zh:'罗纹针织背心',en:'Ribbed knit tank'},detail:{ko:'촘촘한 리브 조직으로 슬림한 라인을 만들어주는 니트 탱크탑입니다. 이너로도, 아우터로도 활용 가능합니다.',zh:'细密罗纹织法勾勒纤细身形的针织背心,可作内搭,也可单穿。',en:'A fine rib knit that shapes a slim line. Wear it as a layering piece or on inner piece.'}
+  },
+  {
+    id:9, 
+    image:'https://images.unsplash.com/photo-1434389678369-18335faabdf8?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1434389678369-18335faabdf8?w=500&q=80',
+      'https://images.unsplash.com/photo-1622345097416-2a781b2df958?w=500&q=80',
+      'https://images.unsplash.com/photo-1560243563-062bfc001d68?w=500&q=80',
+      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&q=80',
+      'https://images.unsplash.com/photo-1574291814206-363acdf2aa79?w=500&q=80'
+    ],
+    price:119000, name:{ko:'모헤어 스웨터',zh:'马海毛毛衣',en:'Mohair sweater'},detail:{ko:'부드럽고 몽글몽글한 모헤어 혼방 원사로 만든 스웨터입니다. 은은한 광택감이 고급스러운 분위기를 더합니다.',zh:'采用柔软蓬松的马海毛混纺纱线制成,微微的光泽感增添高级质感。',en:'Made from a soft mohair-blend yarn with a gentle sheen that adds a touch of luxury.'}
+  },
+  {
+    id:10, 
+    image:'https://images.unsplash.com/photo-1520006403932-d61cb0d636a1?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1520006403932-d61cb0d636a1?w=500&q=80',
+      'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80',
+      'https://images.unsplash.com/photo-1550614000-4b95d4ed6af2?w=500&q=80',
+      'https://images.unsplash.com/photo-1515347619141-86ea4b971556?w=500&q=80',
+      'https://images.unsplash.com/photo-1485230861110-33cb66581898?w=500&q=80'
+    ],
+    price:149000, name:{ko:'니트 투피스 세트',zh:'针织两件套',en:'Knit two-piece set'},detail:{ko:'상의와 하의를 세트로 매치한 니트 투피스입니다. 하나만 입어도 완성도 높은 룩을 연출할 수 있습니다.',zh:'上衣与下装成套设计的针织两件套,单穿一件也能穿出完整造型。',en:'A matching knit top and bottom — or wear either piece on its own for an effortless look.'}
+  },
+  {
+    id:11, 
+    image:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80',
+      'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=500&q=80',
+      'https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=500&q=80',
+      'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&q=80',
+      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&q=80'
+    ],
+    price:85000, name:{ko:'퍼프 소매 니트 탑',zh:'泡泡袖针织衫',en:'Puff sleeve knit top'},detail:{ko:'볼륨감 있는 퍼프 소매로 포인트를 준 니트 탑입니다. 심플한 하의와 매치하기 좋습니다.',zh:'蓬松饱满的泡泡袖设计成为亮点,适合搭配简约下装。',en:'Voluminous puff sleeves add a playful detail. Pairs beautifully with simple bottoms.'}
+  },
+  {
+    id:12, 
+    image:'https://images.unsplash.com/photo-1622345097416-2a781b2df958?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1622345097416-2a781b2df958?w=500&q=80',
+      'https://images.unsplash.com/photo-1560243563-062bfc001d68?w=500&q=80',
+      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&q=80',
+      'https://images.unsplash.com/photo-1574291814206-363acdf2aa79?w=500&q=80',
+      'https://images.unsplash.com/photo-1434389678369-18335faabdf8?w=500&q=80'
+    ],
+    price:99000, name:{ko:'라운드넥 니트 베스트 원피스',zh:'圆领针织背心裙',en:'Round neck knit vest dress'},detail:{ko:'베스트 실루엣으로 디자인된 니트 원피스입니다. 셔츠와 레이어드하면 색다른 분위기를 연출할 수 있습니다.',zh:'采用背心廓形设计的针织连衣裙,叠穿衬衫可以演绎出不同的风格氛围。',en:'Cut with a vest-inspired silhouette. Layer it over a shirt for a fresh, different look.'}
+  },
+  {
+    id:13, 
+    image:'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80',
+      'https://images.unsplash.com/photo-1550614000-4b95d4ed6af2?w=500&q=80',
+      'https://images.unsplash.com/photo-1515347619141-86ea4b971556?w=500&q=80',
+      'https://images.unsplash.com/photo-1485230861110-33cb66581898?w=500&q=80',
+      'https://images.unsplash.com/photo-1520006403932-d61cb0d636a1?w=500&q=80'
+    ],
+    price:69000, name:{ko:'보트넥 니트 탑',zh:'一字领针织衫',en:'Boat neck knit top'},detail:{ko:'넓은 보트넥 디자인으로 쇄골 라인을 예쁘게 살려주는 니트 탑입니다. 목걸이 코디와 잘 어울립니다.',zh:'宽阔的一字领设计,漂亮地展现锁骨线条,非常适合搭配项链。',en:'A wide boat neckline that beautifully frames the collarbone. Pairs nicely with a statement necklace.'}
+  },
+  {
+    id:14, 
+    image:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&q=80',
+      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&q=80',
+      'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80',
+      'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=500&q=80',
+      'https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=500&q=80'
+    ],
+    price:99000, name:{ko:'집업 니트 가디건',zh:'拉链针织开衫',en:'Zip-up knit cardigan'},detail:{ko:'지퍼 디테일로 활용도를 높인 니트 가디건입니다. 캐주얼부터 스포티룩까지 폭넓게 매치할 수 있습니다.',zh:'拉链细节提升了实用性的针织开衫,从休闲到运动风都能轻松驾驭。',en:'A zip-front detail adds versatility, working equally well for casual or sporty looks.'}
+  },
+  {
+    id:15, 
+    image:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&q=80',
+      'https://images.unsplash.com/photo-1574291814206-363acdf2aa79?w=500&q=80',
+      'https://images.unsplash.com/photo-1434389678369-18335faabdf8?w=500&q=80',
+      'https://images.unsplash.com/photo-1622345097416-2a781b2df958?w=500&q=80',
+      'https://images.unsplash.com/photo-1560243563-062bfc001d68?w=500&q=80'
+    ],
+    price:65000, name:{ko:'크롭 니트 탑',zh:'短款针织上衣',en:'Cropped knit top'},detail:{ko:'짧은 기장으로 허리라인을 강조해주는 크롭 니트 탑입니다. 하이웨이스트 팬츠와 매치하면 좋습니다.',zh:'短款设计突出腰部线条的针织上衣,搭配高腰裤效果更佳。',en:'A shorter length that highlights the waistline. Looks great paired with high-waisted trousers.'}
+  },
+  {
+    id:16, 
+    image:'https://images.unsplash.com/photo-1515347619141-86ea4b971556?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1515347619141-86ea4b971556?w=500&q=80',
+      'https://images.unsplash.com/photo-1485230861110-33cb66581898?w=500&q=80',
+      'https://images.unsplash.com/photo-1520006403932-d61cb0d636a1?w=500&q=80',
+      'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80',
+      'https://images.unsplash.com/photo-1550614000-4b95d4ed6af2?w=500&q=80'
+    ],
+    price:119000, name:{ko:'긴팔 니트 원피스',zh:'长袖针织连衣裙',en:'Long sleeve knit dress'},detail:{ko:'긴 소매와 넉넉한 핏으로 편안하게 즐길 수 있는 니트 원피스입니다. 벨트로 포인트를 줄 수 있습니다.',zh:'长袖设计与宽松版型带来舒适穿着体验,搭配腰带更添亮点。',en:'Long sleeves and a relaxed fit make this dress easy to wear all day. Cinch it with a belt for extra shape.'}
+  },
+  {
+    id:17, 
+    image:'https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=500&q=80',
+      'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&q=80',
+      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&q=80',
+      'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80',
+      'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=500&q=80'
+    ],
+    price:79000, name:{ko:'와플 니트 풀오버',zh:'华夫格针织套衫',en:'Waffle knit pullover'},detail:{ko:'와플 패턴의 조직감이 담백한 매력을 더하는 니트 풀오버입니다. 어떤 하의와도 무난하게 어울립니다.',zh:'华夫格纹理带来简约耐看的质感,可以轻松搭配任何下装。',en:'A waffle-knit texture adds quiet character. Easy to pair with any bottoms.'}
+  },
+  {
+    id:18, 
+    image:'https://images.unsplash.com/photo-1622345097416-2a781b2df958?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1622345097416-2a781b2df958?w=500&q=80',
+      'https://images.unsplash.com/photo-1560243563-062bfc001d68?w=500&q=80',
+      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&q=80',
+      'https://images.unsplash.com/photo-1574291814206-363acdf2aa79?w=500&q=80',
+      'https://images.unsplash.com/photo-1434389678369-18335faabdf8?w=500&q=80'
+    ],
+    price:75000, name:{ko:'니트 스커트',zh:'针织半身裙',en:'Knit skirt'},detail:{ko:'부드러운 소재감으로 자연스럽게 떨어지는 니트 스커트입니다. 니트 상의와 세트로 매치하기 좋습니다.',zh:'柔软面料带来自然垂坠的针织半身裙,与针织上衣成套搭配十分相宜。',en:'A soft fabric that drapes naturally. Pairs beautifully with a knit top for a coordinated look.'}
+  },
+  {
+    id:19, 
+    image:'https://images.unsplash.com/photo-1485230861110-33cb66581898?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1485230861110-33cb66581898?w=500&q=80',
+      'https://images.unsplash.com/photo-1520006403932-d61cb0d636a1?w=500&q=80',
+      'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80',
+      'https://images.unsplash.com/photo-1550614000-4b95d4ed6af2?w=500&q=80',
+      'https://images.unsplash.com/photo-1515347619141-86ea4b971556?w=500&q=80'
+    ],
+    price:135000, name:{ko:'앙고라 혼방 스웨터',zh:'安哥拉混纺毛衣',en:'Angora blend sweater'},detail:{ko:'앙고라를 혼방하여 포근하고 사랑스러운 느낌을 살린 스웨터입니다. 겨울철 데일리룩으로 추천합니다.',zh:'混纺安哥拉纤维带来温暖可爱的质感,推荐作为冬季日常穿搭之选。',en:'An angora blend that feels warm and soft to the touch. A lovely pick for everyday winter wear.'}
+  },
+  {
+    id:20, 
+    image:'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=500&q=80', 
+    gallery: [
+      'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=500&q=80',
+      'https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=500&q=80',
+      'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&q=80',
+      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&q=80',
+      'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80'
+    ],
+    price:139000, name:{ko:'오버사이즈 니트 가디건',zh:'廓形针织开衫',en:'Oversized knit cardigan'},detail:{ko:'넉넉한 오버사이즈 핏으로 편안하게 걸칠 수 있는 니트 가디건입니다. 이너와의 레이어드로 다양한 룩을 연출할 수 있습니다.',zh:'宽松的廓形版型让穿着更加自在随性,叠穿内搭可以演绎多种风格造型。',en:'A generously oversized fit that\u2019s easy to throw on. Layer it over different pieces for a range of looks.'}
+  }
+];
+
+var loopIconSvg = '<svg class="icon-loop" viewBox="0 0 120 70" aria-hidden="true"><ellipse cx="46" cy="35" rx="34" ry="24" transform="rotate(-18 46 35)" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="76" cy="35" rx="34" ry="24" transform="rotate(18 76 35)" fill="none" stroke="currentColor" stroke-width="2.4" opacity=".75"/></svg>';
+
+function t(key){ return ui[currentLang][key] !== undefined ? ui[currentLang][key] : ''; }
+
+function formatPrice(krwPrice) {
+  if(currentLang === 'ko') {
+    return '₩' + krwPrice.toLocaleString();
+  } else if(currentLang === 'zh') {
+    var cny = Math.round(krwPrice * 0.0054);
+    return '¥' + cny.toLocaleString();
+  } else {
+    var usd = Math.round(krwPrice * 0.00075);
+    return '$' + usd.toLocaleString();
+  }
+}
+
+function renderProductGrid(){
+  var grid = document.getElementById('productGrid');
+  var html = '';
+  for(var i=0;i<products.length;i++){
+    var p = products[i];
+    var tone = 't' + (i % 4);
+    
+    var imageHtml = p.image 
+      ? '<img src="' + p.image + '" alt="' + p.name[currentLang] + '" loading="lazy" onload="this.classList.add(\'loaded\')">' 
+      : '<div class="placeholder-content">' + loopIconSvg + '<span>' + t('imagePlaceholder') + '</span></div>';
+
+    html += '<article class="product-card"><div class="product-image ' + tone + '">' + imageHtml + '</div><div class="product-body"><h3>' + p.name[currentLang] + '</h3><p class="product-price">' + formatPrice(p.price) + '</p><button class="btn btn-outline btn-sm" onclick="openDetail(' + p.id + ')">' + t('viewDetails') + '</button></div></article>';
+  }
+  grid.innerHTML = html;
+}
+
+function renderDetail(id){
+  var p = null;
+  for(var i=0;i<products.length;i++){ if(products[i].id===id){ p=products[i]; break; } }
+  if(!p) return;
+  document.getElementById('detailName').textContent = p.name[currentLang];
+  document.getElementById('detailPrice').textContent = formatPrice(p.price); 
+  document.getElementById('detailDesc').textContent = p.detail[currentLang];
+  
+  var galleryImages = (p.gallery && p.gallery.length > 0) ? p.gallery : (p.image ? [p.image] : []);
+  var galleryNode = document.getElementById('detailGalleryNode');
+  
+  if (galleryImages.length > 1) {
+    var galleryHtml = '';
+    for(var j=0; j<galleryImages.length; j++){
+      var activeClass = j === 0 ? 'active' : '';
+      galleryHtml += '<img src="' + galleryImages[j] + '" class="' + activeClass + '" onclick="swapDetailImage(this, \'' + galleryImages[j] + '\')">';
+    }
+    galleryNode.innerHTML = galleryHtml;
+    galleryNode.style.display = 'flex';
+  } else {
+    galleryNode.innerHTML = '';
+    galleryNode.style.display = 'none';
+  }
+  
+  var imgNode = document.getElementById('detailImgNode');
+  var placeholderNode = document.getElementById('detailPlaceholderNode');
+  
+  if (galleryImages.length > 0) {
+    imgNode.classList.remove('loaded'); 
+    imgNode.alt = p.name[currentLang];
+    imgNode.style.display = 'block'; 
+    placeholderNode.style.display = 'none'; 
+    
+    // 修复：先绑定 onload 再赋 src，防止缓存图片瞬间加载导致事件丢失
+    imgNode.onload = function() {
+      this.classList.add('loaded');
+    };
+    imgNode.src = galleryImages[0];
+    
+    // 修复：如果图片是从缓存直接秒出的，直接追加 loaded
+    if (imgNode.complete) {
+      imgNode.classList.add('loaded');
+    }
+  } else {
+    imgNode.src = '';
+    imgNode.style.display = 'none'; 
+    placeholderNode.style.display = 'flex'; 
+  }
+}
+
+function swapDetailImage(thumbnailElem, src) {
+  var imgNode = document.getElementById('detailImgNode');
+  
+  imgNode.classList.remove('loaded');
+  
+  setTimeout(function(){
+    // 修复：先绑定 onload 再赋 src，防止缓存图片瞬间加载导致事件丢失
+    imgNode.onload = function() { this.classList.add('loaded'); };
+    imgNode.src = src;
+    if (imgNode.complete) { imgNode.classList.add('loaded'); }
+  }, 100); 
+  
+  var siblings = document.getElementById('detailGalleryNode').getElementsByTagName('img');
+  for(var i=0; i<siblings.length; i++){ siblings[i].classList.remove('active'); }
+  thumbnailElem.classList.add('active');
+}
+
+function openDetail(id){
+  currentDetailId = id;
+  renderDetail(id);
+  
+  var listView = document.getElementById('productListView');
+  var detailView = document.getElementById('productDetailView');
+  
+  listView.classList.remove('active');
+  detailView.classList.add('active');
+  detailView.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function closeDetail(){
+  currentDetailId = null;
+  
+  var listView = document.getElementById('productListView');
+  var detailView = document.getElementById('productDetailView');
+  
+  detailView.classList.remove('active');
+  listView.classList.add('active');
+  listView.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function applyI18n(){
+  document.documentElement.lang = currentLang;
+  document.getElementById('pageTitle').textContent = t('pageTitle');
+  document.getElementById('pageDesc').setAttribute('content', t('pageDesc'));
+  
+  var nodes = document.querySelectorAll('[data-i18n]');
+  for(var i=0;i<nodes.length;i++){
+    var key = nodes[i].getAttribute('data-i18n');
+    if(ui[currentLang][key] !== undefined){ nodes[i].innerHTML = ui[currentLang][key]; }
+  }
+  
+  var langBtns = document.querySelectorAll('.lang-switch button');
+  for(var j=0;j<langBtns.length;j++){
+    langBtns[j].classList.toggle('active', langBtns[j].getAttribute('data-lang') === currentLang);
+  }
+  
+  renderProductGrid();
+  if(currentDetailId !== null){ renderDetail(currentDetailId); }
+}
+
+function setLang(lang){
+  currentLang = lang;
+  applyI18n();
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  applyI18n(); 
+
+  var header=document.getElementById('siteHeader');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>30){header.classList.add('scrolled');}else{header.classList.remove('scrolled');}
+  });
+
+  var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals=document.querySelectorAll('[data-reveal]');
+  if(reduceMotion){
+    for(var i=0;i<reveals.length;i++){ reveals[i].classList.add('in-view'); }
+  }else if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){entry.target.classList.add('in-view');io.unobserve(entry.target);}
+      });
+    },{threshold:0.15});
+    for(var k=0;k<reveals.length;k++){ io.observe(reveals[k]); }
+  }else{
+    for(var m=0;m<reveals.length;m++){ reveals[m].classList.add('in-view'); }
+  }
+});
+</script>
+
+</body>
+</html>
